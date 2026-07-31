@@ -13,7 +13,7 @@ public class EmployeeController {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    // GET /employees?page=0&size=5&sort=salary,desc[cite: 2]
+    // GET /employees?page=0&size=5&sort=salary,desc
     @GetMapping
     public Page<Employee> getEmployees(
             @RequestParam(defaultValue = "0") int page,
