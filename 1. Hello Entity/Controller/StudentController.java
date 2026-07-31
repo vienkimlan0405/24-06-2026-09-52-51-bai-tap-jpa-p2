@@ -14,13 +14,13 @@ public class StudentController {
     @Autowired
     private StudentRepository studentRepository;
 
-    // POST /students → thêm sinh viên[cite: 2]
+    // POST /students → thêm sinh viên
     @PostMapping
     public Student createStudent(@RequestBody Student student) {
         return studentRepository.save(student);
     }
 
-    // GET /students → lấy danh sách sinh viên[cite: 2]
+    // GET /students → lấy danh sách sinh viên
     @GetMapping
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
