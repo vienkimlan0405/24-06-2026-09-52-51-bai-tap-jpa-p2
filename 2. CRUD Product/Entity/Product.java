@@ -9,12 +9,12 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product { //[cite: 2]
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; //[cite: 2]
+    private Long id;
 
-    private String name; //[cite: 2]
-    private BigDecimal price; //[cite: 2]
-    private String description; //[cite: 2]
+    private String name;
+    private BigDecimal price;
+    private String description;
 }
