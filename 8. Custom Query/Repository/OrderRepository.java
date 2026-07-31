@@ -10,10 +10,10 @@ import java.util.List;
 
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
-    // 1. Tìm order theo khoảng ngày[cite: 2]
+    // 1. Tìm order theo khoảng ngày
     List<Order> findByCreatedAtBetween(LocalDateTime startDate, LocalDateTime endDate);
 
-    // 2. Tìm top 5 order có totalAmount lớn nhất[cite: 2]
+    // 2. Tìm top 5 order có totalAmount lớn nhất
     @Query("SELECT o FROM Order o ORDER BY o.totalAmount DESC LIMIT 5")
     List<Order> findTop5ByOrderByTotalAmountDesc();
 }
