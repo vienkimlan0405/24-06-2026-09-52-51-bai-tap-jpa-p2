@@ -8,12 +8,12 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Employee { //[cite: 2]
+public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; //[cite: 2]
+    private Long id;
 
-    private String name; //[cite: 2]
-    private Double salary; //[cite: 2]
-    private String department; //[cite: 2]
+    private String name; 
+    private Double salary;
+    private String department;
 }
