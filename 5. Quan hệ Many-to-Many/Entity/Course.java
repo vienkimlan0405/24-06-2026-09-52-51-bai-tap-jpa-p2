@@ -10,12 +10,12 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Course { //[cite: 2]
+public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; //[cite: 2]
+    private Long id;
 
-    private String title; //[cite: 2]
+    private String title;
 
     @ManyToMany(mappedBy = "courses")
     @JsonIgnore
