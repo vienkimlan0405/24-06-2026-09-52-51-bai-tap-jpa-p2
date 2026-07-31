@@ -9,18 +9,18 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User { //[cite: 2]
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; //[cite: 2]
+    private Long id;
 
-    @NotBlank(message = "Username không được để trống") //[cite: 2]
-    private String username; //[cite: 2]
+    @NotBlank(message = "Username không được để trống")
+    private String username;
 
-    @Email(message = "Email không hợp lệ") //[cite: 2]
+    @Email(message = "Email không hợp lệ")
     @NotBlank(message = "Email không được để trống")
-    private String email; //[cite: 2]
+    private String email;
 
-    @Size(min = 6, message = "Mật khẩu phải chứa ít nhất 6 ký tự") //[cite: 2]
-    private String password; //[cite: 2]
+    @Size(min = 6, message = "Mật khẩu phải chứa ít nhất 6 ký tự")
+    private String password;
 }
