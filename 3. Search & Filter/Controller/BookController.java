@@ -15,8 +15,8 @@ public class BookController {
     @Autowired
     private BookRepository bookRepository;
 
-    // GET /books/search?author=ABC[cite: 2]
-    // GET /books/search?minPrice=100&maxPrice=300[cite: 2]
+    // GET /books/search?author=ABC
+    // GET /books/search?minPrice=100&maxPrice=300
     @GetMapping("/search")
     public List<Book> searchBooks(
             @RequestParam(required = false) String author,
