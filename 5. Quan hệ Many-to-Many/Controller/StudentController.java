@@ -19,13 +19,13 @@ public class StudentController {
     @Autowired
     private CourseRepository courseRepository;
 
-    // POST /students → thêm student[cite: 2]
+    // POST /students → thêm student
     @PostMapping
     public Student createStudent(@RequestBody Student student) {
         return studentRepository.save(student);
     }
 
-    // POST /students/{id}/courses/{courseId} → đăng ký khóa học cho student[cite: 2]
+    // POST /students/{id}/courses/{courseId} → đăng ký khóa học cho student
     @PostMapping("/{id}/courses/{courseId}")
     public Student enrollCourse(@PathVariable Long id, @PathVariable Long courseId) {
         Student student = studentRepository.findById(id)
@@ -37,7 +37,7 @@ public class StudentController {
         return studentRepository.save(student);
     }
 
-    // GET /students/{id}/courses → lấy danh sách khóa học của 1 student[cite: 2]
+    // GET /students/{id}/courses → lấy danh sách khóa học của 1 student
     @GetMapping("/{id}/courses")
     public List<Course> getStudentCourses(@PathVariable Long id) {
         Student student = studentRepository.findById(id)
