@@ -6,9 +6,9 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public interface BookRepository extends JpaRepository<Book, Long> {
-    // Lọc theo author[cite: 2]
+    // Lọc theo author
     List<Book> findByAuthorContainingIgnoreCase(String author);
 
-    // Lọc theo khoảng giá[cite: 2]
+    // Lọc theo khoảng giá
     List<Book> findByPriceBetween(BigDecimal minPrice, BigDecimal maxPrice);
 }
