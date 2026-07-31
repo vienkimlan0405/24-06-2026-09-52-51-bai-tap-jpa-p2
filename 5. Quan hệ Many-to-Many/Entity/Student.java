@@ -9,12 +9,12 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Student { //[cite: 2]
+public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; //[cite: 2]
+    private Long id;
 
-    private String name; //[cite: 2]
+    private String name;
 
     @ManyToMany
     @JoinTable(
