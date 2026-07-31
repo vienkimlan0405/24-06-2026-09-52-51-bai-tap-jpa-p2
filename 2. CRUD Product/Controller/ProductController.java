@@ -1,28 +1,52 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.Student;
-import com.example.demo.repository.StudentRepository;
+import com.example.demo.entity.Product;
+import com.example.demo.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/students")
-public class StudentController {
+@RequestMapping("/products")
+public class ProductController {
 
     @Autowired
-    private StudentRepository studentRepository;
+    private ProductRepository productRepository;
 
-    // POST /students → thêm sinh viên[cite: 2]
+    // POST /products → thêm sản phẩm[cite: 2]
     @PostMapping
-    public Student createStudent(@RequestBody Student student) {
-        return studentRepository.save(student);
+    public Product createProduct(@RequestBody Product product) {
+        return productRepository.save(product);
     }
 
-    // GET /students → lấy danh sách sinh viên[cite: 2]
+    // GET /products → lấy tất cả sản phẩm[cite: 2]
     @GetMapping
-    public List<Student> getAllStudents() {
-        return studentRepository.findAll();
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
+    }
+
+    // GET /products/{id} → lấy chi tiết sản phẩm[cite: 2]
+    @GetMapping("/{id}")
+    public Product getProductById(@PathVariable Long id) {
+        return productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+    }
+
+    // PUT /products/{id} → cập nhật[cite: 2]
+    @PutMapping("/{id}")
+    public Product updateProduct(@PathVariable Long id, @RequestBody Product details) {
+        Product product = getProductById(id);
+        product.setName(details.getName());
+        product.setPrice(details.getPrice());
+        product.setDescription(details.getDescription());
+        return productRepository.save(product);
+    }
+
+    // DELETE /products/{id} → xóa[cite: 2]
+    @DeleteMapping("/{id}")
+    public String deleteProduct(@PathVariable Long id) {
+        productRepository.deleteById(id);
+        return "Deleted successfully";
     }
 }
