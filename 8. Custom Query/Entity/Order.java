@@ -10,12 +10,12 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Order { //[cite: 2]
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; //[cite: 2]
+    private Long id;
 
-    private String customerName; //[cite: 2]
-    private BigDecimal totalAmount; //[cite: 2]
-    private LocalDateTime createdAt; //[cite: 2]
+    private String customerName;
+    private BigDecimal totalAmount;
+    private LocalDateTime createdAt;
 }
