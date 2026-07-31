@@ -14,26 +14,26 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
-    // POST /products → thêm sản phẩm[cite: 2]
+    // POST /products → thêm sản phẩm
     @PostMapping
     public Product createProduct(@RequestBody Product product) {
         return productRepository.save(product);
     }
 
-    // GET /products → lấy tất cả sản phẩm[cite: 2]
+    // GET /products → lấy tất cả sản phẩm
     @GetMapping
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
-    // GET /products/{id} → lấy chi tiết sản phẩm[cite: 2]
+    // GET /products/{id} → lấy chi tiết sản phẩm
     @GetMapping("/{id}")
     public Product getProductById(@PathVariable Long id) {
         return productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Product not found"));
     }
 
-    // PUT /products/{id} → cập nhật[cite: 2]
+    // PUT /products/{id} → cập nhật
     @PutMapping("/{id}")
     public Product updateProduct(@PathVariable Long id, @RequestBody Product details) {
         Product product = getProductById(id);
@@ -43,7 +43,7 @@ public class ProductController {
         return productRepository.save(product);
     }
 
-    // DELETE /products/{id} → xóa[cite: 2]
+    // DELETE /products/{id} → xóa
     @DeleteMapping("/{id}")
     public String deleteProduct(@PathVariable Long id) {
         productRepository.deleteById(id);
